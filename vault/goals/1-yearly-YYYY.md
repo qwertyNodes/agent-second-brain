@@ -1,10 +1,10 @@
 ---
 type: yearly
-period: 2025
+period: YYYY
 updated: YYYY-MM-DD
 ---
 
-# Goals 2025
+# Goals YYYY
 
 ## Annual Theme
 

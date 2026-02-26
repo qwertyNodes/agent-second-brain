@@ -57,7 +57,7 @@ For tasks with details:
 Before saving any thought or task, check:
 - Это масштабируется?
 - Это можно автоматизировать?
-- Это усиливает экспертизу/бренд?
+- Это усиливает экспертизу [Your Business]?
 - Это приближает к продукту/SaaS?
 
 If 2+ yes → boost priority.

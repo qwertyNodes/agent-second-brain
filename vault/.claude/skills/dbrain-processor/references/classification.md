@@ -1,17 +1,5 @@
 # Entry Classification
 
-<!--
-╔══════════════════════════════════════════════════════════════════╗
-║  КАК НАСТРОИТЬ ЭТОТ ФАЙЛ                                         ║
-╠══════════════════════════════════════════════════════════════════╣
-║  1. Замените [Your Client Names] на имена ваших клиентов        ║
-║  2. Замените [Your Company] на название вашей компании          ║
-║  3. Замените [@your_channel] на ваш Telegram-канал              ║
-║  4. Добавьте свои домены работы, если они отличаются            ║
-║  5. Удалите этот комментарий после настройки                    ║
-╚══════════════════════════════════════════════════════════════════╝
--->
-
 ## Work Domains → Categories
 
 Based on user's work context (see [ABOUT.md](ABOUT.md)):
@@ -19,8 +7,7 @@ Based on user's work context (see [ABOUT.md](ABOUT.md)):
 ### Client Work
 Брифы, стратегии, креатив, кампании, KPI, предложения
 
-<!-- Добавьте имена ваших клиентов через запятую -->
-**Keywords:** [Your Client Names], клиент, бриф, презентация, дедлайн, KPI
+**Keywords:** [Client A], [Client B], [Client C], клиент, бриф, презентация, дедлайн, KPI
 
 **→ Category:** task (p1-p2) → Todoist
 
@@ -41,16 +28,14 @@ Based on user's work context (see [ABOUT.md](ABOUT.md)):
 ### Company Ops
 Команда, процессы, автоматизация, найм, управление, финансы
 
-<!-- Замените [Your Company] на название вашей компании/проекта -->
-**Keywords:** команда, найм, процесс, HR, финансы, [Your Company]
+**Keywords:** команда, найм, процесс, HR, финансы, [Your Business], агентство
 
 **→ Category:** task или project (depends on urgency)
 
 ### Content
 Посты, идеи, тезисы для Telegram и LinkedIn
 
-<!-- Замените [@your_channel] на ваш Telegram-канал или удалите если не нужно -->
-**Keywords:** пост, [@your_channel], LinkedIn, контент, тезис, статья
+**Keywords:** пост, @yourbrand, LinkedIn, контент, тезис, статья
 
 **→ Category:** idea → thoughts/ideas/ или task если с дедлайном
 
@@ -62,7 +47,7 @@ Based on user's work context (see [ABOUT.md](ABOUT.md)):
 Entry text contains...
 │
 ├─ Client brand or deadline? ────────────────────> TASK (p1-p2)
-│  ([Your Clients], клиент, дедлайн, презентация)
+│  ([Client A], [Client B], клиент, дедлайн, презентация)
 │
 ├─ Operational/urgent? ──────────────────────────> TASK (p2-p3)
 │  (нужно сделать, не забыть, позвонить, встреча)
@@ -82,6 +67,30 @@ Entry text contains...
 └─ Content idea? ────────────────────────────────> IDEA
    (пост, тезис, контент)
 ```
+
+---
+
+## Business Client Detection
+
+Entry mentions a known client (see business-context.md)?
+
+```
+├─ + deadline/urgency? → TASK (p1-p2) + client label
+├─ + статус ("отправили КП", "выиграли")? → TASK + flag for CRM note
+├─ + встреча/звонок? → TASK (p2) + [[client]] link
+└─ просто упоминание? → Add [[client]] link only
+```
+
+### CRM Status Keywords (для информации в отчёте)
+
+| Keywords | Интерпретация |
+|----------|---------------|
+| "подписали", "выиграли", "получили" | Позитивный исход |
+| "отказали", "проиграли", "не пошли" | Негативный исход |
+| "отправили КП", "подали" | В процессе |
+| "ждём ответ", "на рассмотрении" | Ожидание |
+
+---
 
 ## Apply Decision Filters
 
@@ -156,8 +165,7 @@ tags: [tag1, tag2]
 [Ключевая идея]
 
 ## Implication
-<!-- Замените [Your Company] на название вашей компании -->
-[Что это значит для [Your Company]/продукта/стратегии]
+[Что это значит для [Your Business]/продукта/стратегии]
 
 ## Next Action
 [Конкретный шаг — не абстрактный]
@@ -169,7 +177,7 @@ tags: [tag1, tag2]
 
 При создании мыслей НЕ делать:
 - Абстрактные рассуждения без Next Action
-- Академическая теория без применения к вашему проекту/продукту
+- Академическая теория без применения к [Your Business]/продукту
 - Повторы без синтеза (кластеризуй похожие!)
 - Хаотичные списки без приоритетов
 - Задачи типа "подумать о..." (конкретизируй!)

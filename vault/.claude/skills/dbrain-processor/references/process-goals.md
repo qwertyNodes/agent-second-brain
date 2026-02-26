@@ -24,46 +24,46 @@ Based on research (meta-analysis of 27 experiments in sports):
 
 | Outcome Goal | Process Goal |
 |--------------|--------------|
-| "Close the deal with X" | "Send 1 follow-up per day to client X" |
-| "Launch product" | "2h deep work on MVP every morning" |
-| "Get 10 clients" | "Write 5 outreach messages per day" |
-| "Prepare the program" | "30 min research analogs daily" |
-| "Find a partner" | "1 networking message per day" |
+| "Закрыть сделку с [Client A]" | "Отправлять 1 follow-up в день клиенту [Client A]" |
+| "Запустить продукт" | "2h deep work на MVP каждое утро" |
+| "Привлечь 10 клиентов" | "Написать 5 outreach сообщений в день" |
+| "Подготовить программу" | "30 мин research аналогов ежедневно" |
+| "Найти партнёра" | "1 нетворкинг сообщение в день" |
 
 ## Patterns for Process Goals
 
 ### Time Blocks
 Regular dedicated time for deep work:
-- "2h deep work on [project] every morning 6-8am"
-- "1h research [topic] after lunch"
+- "2h deep work на [project] каждое утро 6-8am"
+- "1h research [topic] после обеда"
 
 ### Frequency Commitments
 Consistent action cadence:
-- "1 outreach message per day"
-- "3 customer calls per week"
-- "5 proposals per week"
+- "1 outreach message в день"
+- "3 customer calls в неделю"
+- "5 proposals в неделю"
 
 ### Checkpoints
 Review milestones:
-- "Show draft to 1 person before Friday"
-- "Review progress with mentor on Wednesday"
+- "Показать драфт 1 человеку до пятницы"
+- "Review прогресс с ментором в среду"
 
 ### Streaks
 Daily habits:
-- "30 min movement every day"
-- "10 min journaling in the morning"
+- "30 мин движения каждый день"
+- "10 мин journaling утром"
 
 ## When Processing Voice Entries
 
 If user says outcome goal, consider transforming:
 
 ```
-User: "Need to close the deal with client X"
+User: "Нужно закрыть сделку с [Client A]"
 
-BAD: Create task "Close deal with client X" p1
+BAD: Create task "Закрыть сделку с [Client A]" p1
 → Vague, creates anxiety, unclear next action
 
-GOOD: Create task "Send follow-up to client X with updated proposal" p1 due:tomorrow
+GOOD: Create task "Отправить follow-up [Client A] с обновлённым КП" p1 due:tomorrow
 → Specific, actionable, controllable
 ```
 
@@ -82,19 +82,19 @@ Map process goals to Todoist dueString:
 
 | Process | dueString |
 |---------|-----------|
-| "every morning" | "every day at 6am" |
-| "every day" | "every day" |
-| "every workday" | "every weekday" |
-| "3 times per week" | "every monday, wednesday, friday" |
-| "once a week" | "every week" |
-| "by Friday" | "friday" (one-time) |
+| "каждое утро" | "every day at 6am" |
+| "каждый день" | "every day" |
+| "каждый рабочий день" | "every weekday" |
+| "3 раза в неделю" | "every monday, wednesday, friday" |
+| "раз в неделю" | "every week" |
+| "до пятницы" | "friday" (one-time) |
 
 ## Anti-Patterns
 
 Avoid creating process goals that are:
-- Too vague: "Work on project" (how much? when?)
+- Too vague: "Работать над проектом" (how much? when?)
 - Too ambitious: "4h deep work 5 days a week" (unsustainable)
-- Untrackable: "Think about strategy" (not measurable)
+- Untrackable: "Думать о стратегии" (not measurable)
 
 Good process goals are:
 - Specific in action

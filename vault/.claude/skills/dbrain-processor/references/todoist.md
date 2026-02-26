@@ -1,28 +1,47 @@
 # Todoist Integration
 
-<!--
-╔══════════════════════════════════════════════════════════════════╗
-║  КАК НАСТРОИТЬ ЭТОТ ФАЙЛ                                         ║
-╠══════════════════════════════════════════════════════════════════╣
-║  1. Замените [Your Clients] на имена ваших клиентов              ║
-║  2. Замените [Your Company] на название вашей компании           ║
-║  3. Замените [@your_channel] на ваш Telegram-канал               ║
-║  4. Измените примеры задач на релевантные для вас                ║
-║  5. Удалите этот комментарий после настройки                     ║
-╚══════════════════════════════════════════════════════════════════╝
--->
+## Task Links Format
 
-## Available MCP Tools
+ВАЖНО: Todoist изменил формат ссылок. Используй НОВЫЙ формат:
+
+✅ Правильно: `https://app.todoist.com/app/task/{task_id}`
+❌ Устарело: `https://todoist.com/showTask?id={task_id}`
+❌ Устарело: `https://todoist.com/app/task/{task_id}`
+
+Если MCP tool вернул task с `url` полем — используй его напрямую.
+Если нужно построить ссылку из task_id — используй формат выше.
+
+---
+
+## Todoist через mcp-cli
+
+**ВСЕГДА используй mcp-cli. НЕ используй MCP tools напрямую.**
 
 ### Reading Tasks
-- `get-overview` — all projects with hierarchy
-- `find-tasks` — search by text, project, section
-- `find-tasks-by-date` — tasks by date range
+
+```bash
+# Обзор всех проектов
+mcp-cli call todoist get-overview '{}'
+
+# Поиск по тексту, проекту, секции
+mcp-cli call todoist find-tasks '{"searchText": "keyword"}'
+
+# Задачи по дате
+mcp-cli call todoist find-tasks-by-date '{"startDate": "today", "daysCount": 7}'
+```
 
 ### Writing Tasks
-- `add-tasks` — create new tasks
-- `complete-tasks` — mark as done
-- `update-tasks` — modify existing
+
+```bash
+# Создать задачу
+mcp-cli call todoist add-tasks '{"tasks": [{"content": "Task", "dueString": "tomorrow", "priority": 2}]}'
+
+# Завершить задачу
+mcp-cli call todoist complete-tasks '{"ids": ["task_id"]}'
+
+# Обновить задачу
+mcp-cli call todoist update-tasks '{"tasks": [{"id": "task_id", "content": "New title"}]}'
+```
 
 ---
 
@@ -30,11 +49,8 @@
 
 ### 1. Check Workload (REQUIRED)
 
-```
-find-tasks-by-date:
-  startDate: "today"
-  daysCount: 7
-  limit: 50
+```bash
+mcp-cli call todoist find-tasks-by-date '{"startDate": "today", "daysCount": 7, "limit": 50}'
 ```
 
 Build workload map:
@@ -50,9 +66,8 @@ Sun: 0 tasks
 
 ### 2. Check Duplicates (REQUIRED)
 
-```
-find-tasks:
-  searchText: "key words from new task"
+```bash
+mcp-cli call todoist find-tasks '{"searchText": "key words from new task"}'
 ```
 
 If similar exists → mark as duplicate, don't create.
@@ -86,7 +101,7 @@ Based on user's work context (see [ABOUT.md](ABOUT.md)):
 If entry matches 2+ filters → boost priority by 1 level:
 - Это масштабируется?
 - Это можно автоматизировать?
-- Это усиливает экспертизу/бренд?
+- Это усиливает экспертизу [Your Business]?
 - Это приближает к продукту/SaaS?
 
 ---
@@ -120,24 +135,23 @@ If entry matches 2+ filters → boost priority by 1 level:
 
 ## Task Creation
 
+```bash
+mcp-cli call todoist add-tasks '{"tasks": [{"content": "Task title", "dueString": "friday", "priority": 4}]}'
 ```
-add-tasks:
-  tasks:
-    - content: "Task title"
-      dueString: "friday"  # MANDATORY
-      priority: "p4"       # based on domain
-      projectId: "..."     # if known
+
+С projectId:
+```bash
+mcp-cli call todoist add-tasks '{"tasks": [{"content": "Task title", "dueString": "friday", "priority": 4, "projectId": "..."}]}'
 ```
 
 ### Task Title Style
 
 User prefers: прямота, ясность, конкретика
 
-<!-- Замените примеры на релевантные для вас -->
 ✅ Good:
-- "Отправить презентацию клиенту"
-- "Созвон с командой по проекту"
-- "Написать пост про [тема]"
+- "Отправить презентацию [Client A]"
+- "Созвон с командой по AI-агентам"
+- "Написать пост про Claude MCP"
 
 ❌ Bad:
 - "Подумать о презентации"
@@ -155,19 +169,38 @@ If target day has 3+ tasks:
 
 ## Project Detection
 
-<!--
-Настройте под свои проекты в Todoist.
-Замените примеры клиентов и название канала.
--->
+Based on work domains:
 
 | Keywords | Project |
 |----------|---------|
-| [Your Client Names], клиент, бренд | Client Work |
-| [Your Company], команда, найм, процессы | Company Ops |
+| [Client A], [Client B], клиент, бренд | Client Work |
+| [Your Business], агентство, команда, найм | Agency Ops |
 | продукт, SaaS, MVP | Product |
-| пост, [@your_channel], контент | Content |
+| пост, @yourbrand, контент | Content |
 
 If unclear → use Inbox (no projectId).
+
+---
+
+## Client Labels
+
+При создании задач связанных с клиентом, добавляй label.
+
+### Format
+`client:{kebab-case-name}`
+
+### Примеры
+- client:acme-corp
+- client:techco
+- client:phonebrand
+
+### Использование
+```bash
+mcp-cli call todoist add-tasks '{"tasks": [{"content": "Follow-up [Client A] по проекту", "labels": ["client:acme-corp", "deadline"]}]}'
+```
+
+### Фильтр в Todoist
+`@client:acme-corp` — все задачи по [Client A]
 
 ---
 
@@ -198,3 +231,50 @@ WRONG output:
 
 CORRECT output:
   "Ошибка создания задачи: [exact error from MCP tool]"
+
+---
+
+## Recurring Tasks for Process Goals
+
+When creating process commitments → use dueString with recurring pattern.
+
+### Recurring Patterns
+
+| Process Description | dueString |
+|---------------------|-----------|
+| каждое утро в 6 | every day at 6am |
+| каждый день | every day |
+| каждый рабочий день | every weekday |
+| 3 раза в неделю | every monday, wednesday, friday |
+| раз в неделю | every week |
+| каждый понедельник | every monday |
+| каждую пятницу | every friday |
+
+### Example: Creating Process Goal Tasks
+
+```bash
+mcp-cli call todoist add-tasks '{"tasks": [
+  {"content": "2h deep work: программа [Client B]", "dueString": "every day at 6am", "priority": 2, "labels": ["process-goal"]},
+  {"content": "1 outreach для поиска 2го спикера", "dueString": "every weekday", "priority": 3, "labels": ["process-goal"]}
+]}'
+```
+
+### Label for Process Goals
+
+Use label `process-goal` for recurring tasks created from Process Commitments.
+This allows easy filtering and cleanup.
+
+### When to Create Recurring
+
+Create recurring tasks when:
+- Generating weekly digest (new week planning)
+- User explicitly asks for process goal setup
+- Transforming outcome goal to process (if user confirms)
+
+### Cleanup Stale Recurring
+
+In weekly digest, check:
+```bash
+mcp-cli call todoist find-tasks '{"labels": ["process-goal"]}'
+```
+If task from previous week → warn user to complete or delete

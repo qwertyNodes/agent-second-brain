@@ -43,15 +43,15 @@ Read goals/1-yearly-2025.md
 Find matching goal areas
 ```
 
-### Step 4: Add Links to Note
+### Step 4: Add Links to Note (with context)
 
-In the thought file, add:
+In the thought file, add **typed relationships** — each link explains WHY it's connected:
 
-**In frontmatter:**
+**In frontmatter (for graph analysis):**
 ```yaml
 related:
-  - "[[thoughts/ideas/2024-12-15-voice-agents.md]]"
-  - "[[goals/1-yearly-2025#AI Development]]"
+  - "[[thoughts/ideas/2024-12-15-voice-agents]]"
+  - "[[goals/1-yearly-2026#AI Development]]"
 ```
 
 **In content (inline):**
@@ -59,13 +59,26 @@ related:
 This connects to [[Voice Agents Architecture]] we explored earlier.
 ```
 
-**In Related section:**
+**In Related section (with context phrases):**
 ```markdown
 ## Related
-- [[Previous related thought]]
-- [[Project this belongs to]]
-- [[Goal this supports]]
+- [[thoughts/ideas/voice-agents-architecture|Voice Agents]] — extends: real-time TTS pipeline
+- [[business/crm/acme-corp|Acme Corp]] — context: NCP campaign uses similar approach
+- [[goals/1-yearly-2026#AI Development]] — supports: yearly AI skill goal
 ```
+
+### Relationship Types
+
+Use context phrases after `—` to explain the connection:
+
+| Type | When to use | Example |
+|------|------------|---------|
+| extends | Builds on another idea | `— extends: adds TTS to voice pipeline` |
+| context | Background/origin of idea | `— context: emerged from client project` |
+| supports | Aligns with a goal | `— supports: Q1 revenue target` |
+| contradicts | Challenges existing note | `— contradicts: previous approach was sync` |
+| enables | Makes something possible | `— enables: automated daily reports` |
+| requires | Dependency | `— requires: mcp-cli working` |
 
 ### Step 5: Update MOC Index
 
@@ -103,6 +116,41 @@ In related notes, add backlink to new note if highly relevant.
 [[goals/3-weekly]] — ONE Big Thing
 ```
 
+---
+
+## Business Entity Links
+
+### Формат связей
+
+| Тип | Формат | Пример |
+|-----|--------|--------|
+| Клиент | `[[business/crm/{name}\|Display]]` | `[[business/crm/acme-corp\|Acme Corp]]` |
+| Проект | `[[projects/{name}\|Display]]` | `[[projects/project-alpha\|Project Alpha]]` |
+| CRM Lead | `[[business/crm/{name}\|Display]]` | `[[business/crm/techco\|TechCo]]` |
+
+### Где добавлять связи (с typed context)
+
+**В daily file (комментарий):**
+```markdown
+## 10:30 [voice]
+Позвонил в Acme Corp по проекту
+<!-- связь: [[business/crm/acme-corp]] -->
+```
+
+**В thoughts (Related section с context phrases):**
+```markdown
+## Related
+- [[business/crm/techco|TechCo]] — context: обсуждение BTL стратегии
+- [[business/crm/phonebrand|PhoneBrand]] — extends: SMM стратегия 2026
+```
+
+**В задаче Todoist (description):**
+```
+Description: "Клиент: [[business/crm/acme-corp|Acme Corp]]"
+```
+
+---
+
 ## Report Section
 
 Track new links created:
@@ -115,36 +163,36 @@ Track new links created:
 
 ## Example Workflow
 
-<!-- Это пример — замените на свои реальные темы -->
-New thought: "Новый инструмент X можно использовать для проекта Y"
+New thought: "Chatterbox TTS can be used for voice agents"
 
 1. **Search:**
-   - Grep "keyword" in thoughts/ → finds related notes
-   - Grep "tool" in thoughts/ → no results
+   - Grep "voice" in thoughts/ → finds [[Voice Agents Architecture]]
+   - Grep "TTS" in thoughts/ → no results
+   - Grep "Chatterbox" → no results
 
 2. **Check MOC:**
-   - MOC-learnings.md has relevant section
+   - MOC-learnings.md has "AI & Voice" section
 
 3. **Goals:**
-   - 1-yearly-2025.md has matching goal
+   - 1-yearly-2025.md has "AI Development" goal
 
 4. **Create links:**
    ```yaml
    related:
-     - "[[thoughts/ideas/related-note.md]]"
-     - "[[goals/1-yearly-2025#Your Goal]]"
+     - "[[thoughts/ideas/voice-agents-architecture.md]]"
+     - "[[goals/1-yearly-2025#AI Development]]"
    ```
 
 5. **Update MOC-learnings.md:**
    ```markdown
-   ### Your Category
-   - [[thoughts/learnings/2024-12-20-new-learning.md]] — Description
+   ### AI & Voice
+   - [[thoughts/learnings/2024-12-20-chatterbox-tts.md]] — TTS for voice agents
    ```
 
 6. **Report:**
    ```
    <b>🔗 Новые связи:</b>
-   • [[New Note]] ↔ [[Related Note]]
+   • [[Chatterbox TTS]] ↔ [[Voice Agents Architecture]]
    ```
 
 ## Orphan Detection
