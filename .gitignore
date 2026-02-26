@@ -24,3 +24,14 @@ node_modules/
 # OS
 .DS_Store
 Thumbs.db
+
+# Vault personal data (never commit these)
+vault/daily/
+vault/contacts/
+vault/finances/
+vault/attachments/
+vault/.session/
+vault/.graph/
+vault/business/
+vault/projects/
+vault/thoughts/
