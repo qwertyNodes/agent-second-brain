@@ -1,19 +1,15 @@
-# Reflections
+# Рефлексии
 
-Map of Content for personal reflections.
+Карта содержания для личных рефлексий.
 
-## Recent
+## По темам
 
-<!-- Recent reflections will appear here -->
+### Сознание и практики
+- [[thoughts/reflections/2026-03-01-consciousness-practices|Практики осознанности]] — Теневая работа, энергетические узлы, натальная карта
 
-## By Theme
-
-### Theme 1
-<!-- Links to related reflections -->
-
-### Theme 2
-<!-- Links to related reflections -->
+### Книга и творчество
+- [[thoughts/reflections/2026-03-01-book-writing-insights|Инсайты по написанию книги]] — Методология, покрытие исходников, критические пробелы
 
 ---
 
-*Updated automatically by the processor*
+*Обновляется автоматически процессором*

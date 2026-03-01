@@ -1,19 +1,26 @@
-# Learnings
+# Знания и открытия
 
-Map of Content for learnings and insights.
+Карта содержания для заметок типа learning.
 
-## Recent
+## По темам
 
-<!-- New learnings will appear here -->
+### AI & Инструменты
+- [[thoughts/learnings/2026-03-01-claude-code-config|Конфигурация Claude Code]] — CLAUDE.md, MCP, оптимизация токенов (91% сокращение)
+- [[thoughts/learnings/2026-03-01-mcp-integrations|MCP-интеграции]] — DataForSEO, Google Sheets, DevTools, context7
 
-## By Topic
+### Инфраструктура
+- [[thoughts/learnings/2026-03-01-solved-infra-problems|Решённые проблемы инфраструктуры]] — Docker, SSH, SSL, Git Bash, fail2ban
 
-### Topic 1
-<!-- Links to related learnings -->
+### SEO
+- [[thoughts/learnings/2026-03-01-seo-gsc-analysis|Анализ Google Search Console]] — 17K показов, 73% не индексировано, план действий
+- [[thoughts/learnings/2026-03-01-smm-providers-audit|Аудит SMM-провайдеров]] — 167 алиасов, многопоточная проверка
 
-### Topic 2
-<!-- Links to related learnings -->
+### UX / Дизайн
+- [[thoughts/learnings/2026-03-01-fivebbc-ux-design|UX-исследование FiveBBC]] — 25 стилей лендингов, каскадный фильтр, баги JS
+
+### Утилиты
+- [[thoughts/learnings/2026-03-01-created-utilities|Каталог созданных утилит]] — 14 Python-инструментов для разных проектов
 
 ---
 
-*Updated automatically by the processor*
+*Обновляется автоматически процессором*

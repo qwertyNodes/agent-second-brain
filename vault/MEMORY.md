@@ -1,75 +1,66 @@
-# Long-term Memory
+# Долгосрочная память
 
-Curated knowledge that persists across sessions. Part of the 3-layer memory architecture (hot context → searchable vault → archive). See `.claude/skills/agent-memory/SKILL.md` for details.
+Горячий контекст, загружается каждую сессию. См. `.claude/skills/agent-memory/SKILL.md`.
 
-## User Profile
+## Профиль
 
-| Field | Value |
-|-------|-------|
-| Name | [Your name] |
-| Timezone | [Your timezone, e.g., UTC+5] |
-| Location | [City/Country] |
-| Primary language | [e.g., Russian/English] |
+| Поле | Значение |
+|------|----------|
+| Имя | Денис Древов (John) |
+| Дата рождения | 1 сентября 1990 |
+| Таймзона | EET (UTC+2) / EEST (UTC+3) |
+| Локация | Кишинёв, Молдова |
+| Язык | Русский (английский для бизнеса) |
 
-## Preferences
+## Предпочтения
 
-### Tech Stack
-- Languages: [e.g., Python, TypeScript]
-- Frameworks: [e.g., React, FastAPI]
-- Tools: [e.g., Cursor, Claude Code]
+- **Стек:** Python, Django, PostgreSQL, Docker, VS Code + Claude Code (Max/Opus)
+- **MCP:** DataForSEO, Google Sheets, Chrome DevTools, context7
+- **Код:** ООП+SOLID, JSON не YAML, полная обработка ошибок, Docker-ready
+- **Общение:** прямо, без теории, пошагово для сложного, минимум документации
+- **Стиль:** «менеджер агентов», фазовый подход, изолированные контексты
 
-### Communication Style
-- Preferred response language: [Russian/English/Mixed]
-- Detail level: [Brief/Detailed]
-- Code comments: [Minimal/Verbose]
+## Ключевые решения
 
-### Habits
-- Morning routine: [if relevant]
-- Work hours: [e.g., 10:00-19:00]
-- Planning cadence: [weekly/daily]
+| Дата | Решение |
+|------|---------|
+| 2025-12 | Media Mechanics LLC в Нью-Мексико |
+| 2026-02 | SEO-аудит: 3 фазы с барьером синхронизации |
+| 2026-02 | Second Brain: Telegram + vault + Todoist |
+| 2026-03 | Фаза 1 (SEO) перед Фазой 2 (крипто) |
 
-## Key Decisions
+## Активный контекст
 
-| Date | Decision | Context |
-|------|----------|---------|
-| YYYY-MM-DD | Example: Use uv instead of pip | Better dependency management |
+**ONE Big Thing:** Настроить Second Brain Agent + запустить Фазу 1 SEO-аудита
 
-## Active Context
+**Горячие проекты:**
+1. FiveBBC — SMM-панель, ~$57K/2025
+2. SEO-аудит — 3 фазы, DataForSEO
+3. Article Writer — AI суб-агенты
+4. Книга «Проснись!» — инвентаризация 16 исходников
 
-### ONE Big Thing (This Week)
-<!-- From goals/3-weekly.md -->
-- [ ] [Current week's main focus]
+**Pipeline:** Крипто-бот (Фаза 2) · SaaS-утилиты
 
-### Hot Projects
-1. [Project name] — [status/next action]
+## Команда
 
-### Pipeline/Leads
-<!-- If applicable -->
-- [Lead name] — [status]
+| Имя | Роль |
+|-----|------|
+| Стас | Клиенты, поддержка |
+| Дима | Новые услуги, тестирование |
 
-## Key People
+## Правила
 
-| Name | Role | Contact | Notes |
-|------|------|---------|-------|
-| [Name] | [Role] | [Telegram/Email] | [Context] |
+- Не начинать Фазу 2 пока Фаза 1 не автоматизирована
+- Фазовый подход с точками согласования
+- Изолированные контексты агентов (91% экономия токенов)
+- Сначала git log/diff, потом решения
+- Проблемы обычно простые — не усложнять
 
-## Learnings
+## Ссылки
 
-### What Worked
-- [Pattern/approach that was successful]
-
-### What Didn't Work
-- [Anti-pattern to avoid]
-
-### Rules to Remember
-- [Important rule discovered during work]
-
-## Quick Links
-
-- [[goals/3-weekly]] — Weekly focus
-- [[goals/2-monthly]] — Monthly priorities
-- [[MOC/index]] — Maps of Content
+- [[goals/3-weekly]] · [[goals/2-monthly]] · [[goals/1-yearly-2026]] · [[goals/0-vision-3y]]
+- [[MOC/MOC-projects]] · [[MOC/MOC-learnings]]
 
 ---
 
-*Last updated: YYYY-MM-DD*
+*Обновлено: 2026-03-01*

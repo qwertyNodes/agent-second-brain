@@ -89,7 +89,6 @@ Based on John's work context (see [about.md](about.md)):
 | Personal Growth (практика, рефлексия) | p3 | — |
 | Крипто-бот / R&D | p4 | автоматизация → p3 |
 | AI & Tech (инструменты) | p4 | автоматизация → p3 |
-| New:{домен} / #unclassified | p4 | пользователь повысил → любой |
 
 ### Priority Keywords
 
@@ -188,13 +187,6 @@ Based on John's work domains (synced with classification.md):
 | Стас, Дима, команда, процесс | Team & Ops |
 | практика, внимание, медитация, сон, энергия, тень | Personal Growth |
 
-### Fallback (synced with classification.md Fallback Classification)
-
-Если задача не попадает ни в один проект:
-1. Есть смысловое пересечение → ближайший проект + label `unclassified`
-2. Абсолютно новая тема → Inbox (no projectId) + label `new-domain`
-3. В отчёте указать: «Тема не классифицирована, задача в Inbox — проверь»
-
 If unclear → use Inbox (no projectId).
 
 ---
@@ -229,8 +221,7 @@ Based on John's preferences:
 - ❌ Абстрактные задачи без Next Action
 - ❌ Дубликаты существующих задач
 - ❌ Задачи без дат
-- ❌ Инсайты и свободные идеи → они идут в vault (thoughts/), НЕ в Todoist (см. classification.md)
-- ❌ Записи с тегами `#revisit`, `#new-domain` → это мысли, не задачи
+- ❌ Инсайты и идеи → они идут в vault (thoughts/), НЕ в Todoist (см. classification.md)
 
 ---
 
