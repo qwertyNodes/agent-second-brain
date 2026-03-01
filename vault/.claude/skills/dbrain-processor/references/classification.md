@@ -2,42 +2,200 @@
 
 ## Work Domains → Categories
 
-Based on user's work context (see [ABOUT.md](ABOUT.md)):
+Based on John's work context (see [about.md](about.md)):
 
-### Client Work
-Брифы, стратегии, креатив, кампании, KPI, предложения
+### FiveBBC Operations
+Заказы, рефиллы, дропы, клиенты, услуги, каталог, поддержка
 
-**Keywords:** [Client A], [Client B], [Client C], клиент, бриф, презентация, дедлайн, KPI
+**Keywords:** FiveBBC, панель, SMM, услуга, каталог, заказ, рефилл, дроп, клиент, оптовик, Стас, Дима, поддержка, тикет
 
-**→ Category:** task (p1-p2) → Todoist
+**→ Category:** task (p1-p3) → Todoist
+
+### SEO & Content Marketing
+Аудит, ключевые слова, статьи, money pages, DataForSEO, трафик
+
+**Keywords:** SEO, аудит, SERP, ключевое слово, КС, DataForSEO, статья, money page, контент, трафик, органика, Article Writer, пайплайн
+
+**→ Category:** task или project → Todoist / thoughts/
 
 ### AI & Tech
-Инструменты, модели, промпты, пайплайны, агенты
+Агенты, Claude Code, MCP, пайплайны, автоматизация, инструменты
 
-**Keywords:** GPT, Claude, модель, агент, API, пайплайн, автоматизация, интеграция
+**Keywords:** Claude, агент, MCP, пайплайн, скилл, автоматизация, API, интеграция, бот, Second Brain
 
 **→ Category:** learning или project → thoughts/
 
-### Product
-Идеи, гипотезы, MVP, юнит-экономика
+### Crypto & R&D
+Арбитраж, боты, биржи, DEX, Web3 — ТОЛЬКО после автоматизации SMM
 
-**Keywords:** продукт, SaaS, MVP, гипотеза, монетизация, юнит-экономика, стартап
+**Keywords:** крипто, арбитраж, биржа, DEX, CEX, Web3, стейкинг, бот-трейдер
 
-**→ Category:** idea или project → thoughts/
+**→ Category:** idea или project → thoughts/ (p4, не срочно)
 
-### Company Ops
-Команда, процессы, автоматизация, найм, управление, финансы
+### Book «Проснись!»
+Книга, исходники, инвентаризация, структура томов, черновик
 
-**Keywords:** команда, найм, процесс, HR, финансы, [Your Business], агентство
+**Keywords:** книга, Проснись, том, глава, исходник, инвентаризация, сознание, внимание, тень, медитация, практика
 
-**→ Category:** task или project (depends on urgency)
+**→ Category:** task (p3) или reflection → Todoist / thoughts/
 
-### Content
-Посты, идеи, тезисы для Telegram и LinkedIn
+### Infrastructure
+Сервер, Docker, SSH, VPS, деплой, DNS, домен
 
-**Keywords:** пост, @yourbrand, LinkedIn, контент, тезис, статья
+**Keywords:** VPS, Contabo, Docker, SSH, сервер, деплой, DNS, nginx, домен, SSL
 
-**→ Category:** idea → thoughts/ideas/ или task если с дедлайном
+**→ Category:** task (p2-p3) → Todoist
+
+### Personal Growth
+Осознанность, практика, рефлексия, тень, инсайты
+
+**Keywords:** понял, осознал, заметил, практика, внимание, тень, рефлексия, медитация, энергия, сон
+
+**→ Category:** reflection → thoughts/reflections/
+
+### Free Insights (свободные инсайты)
+Инсайты на любую тему, не привязанные к конкретному домену. Наблюдения, озарения, связи между вещами. Важно сохранить как есть, без попытки втиснуть в рабочий контекст.
+
+**Keywords:** инсайт, осенило, понял что, заметил что, интересно что, связь между, а что если
+
+**→ Category:** insight → thoughts/insights/
+**→ Tag:** `#revisit` (для возврата и переосмысления позже)
+
+### Free Ideas (свободные идеи)
+Идеи на любую тему — бизнес, продукт, жизнь, творчество, что угодно. Могут быть далёкими от текущих проектов. Главное — не потерять, чтобы вернуться позже.
+
+**Keywords:** идея, а что если, можно было бы, было бы круто, стоит попробовать, проект, задумка
+
+**→ Category:** idea → thoughts/ideas/
+**→ Tag:** `#revisit` (для возврата и оценки позже)
+
+---
+
+## Unknown Topic Resolution
+
+### Принцип
+Бот ВСЕГДА пытается классифицировать запись. «Не знаю куда» — не ответ.
+
+### Алгоритм (3 шага)
+
+**Шаг 1: Попытка привязки к существующему домену**
+
+Проверь entry на пересечение с любым из доменов выше. Используй не только keywords, а смысловой анализ:
+- Есть ли косвенная связь? (пример: «прочитал про нейросети в медицине» → AI & Tech / Learning)
+- Можно ли применить к текущим проектам? (пример: «интересная модель ценообразования» → FiveBBC Ops или Crypto & R&D)
+- Это может быть полезно для книги? (пример: «наблюдение про паттерны поведения» → Book / Reflection)
+
+Если нашёл связь → классифицируй в ближайший домен + добавь тег оригинальной темы.
+
+**Шаг 2: Если не подходит ни один домен → Free Insight / Free Idea**
+
+Если entry не коррелирует ни с одним доменом, но представляет собой мысль или идею:
+- Инсайт / наблюдение → `thoughts/insights/` + `domain: Free` + `#revisit`
+- Идея / задумка → `thoughts/ideas/` + `domain: Free` + `#revisit`
+- Полезная информация → `thoughts/learnings/` + `domain: Free`
+
+**Шаг 3: Если тема повторяется 3+ раз → создать новый домен**
+
+Когда бот замечает, что записи с тегом `#revisit` и `domain: Free` группируются вокруг одной темы (3+ записей с похожими тегами или ключевыми словами):
+
+1. Создать новый файл домена: `thoughts/domains/{domain-name}.md`
+2. Перенести связанные записи в новый домен
+3. Добавить домен в MOC
+4. Сообщить пользователю в дайджесте:
+   > «Обнаружил 3+ записей на тему [{тема}]. Создал новый домен [{domain-name}]. Перенёс: [список файлов].»
+
+### Формат нового домена
+
+```markdown
+---
+created: {YYYY-MM-DD}
+type: domain
+status: emerging
+entries_count: {N}
+---
+
+# Domain: {Название темы}
+
+## Описание
+[Автоматически сгенерированное описание на основе записей]
+
+## Keywords
+[Извлечённые ключевые слова из записей]
+
+## Entries
+- [[{file-1}]] - {краткое описание}
+- [[{file-2}]] - {краткое описание}
+- [[{file-3}]] - {краткое описание}
+
+## Connections
+[Связи с другими доменами, если есть]
+```
+
+### Пример
+
+Три записи за месяц:
+1. `thoughts/insights/2026-03-05-sleep-cycles-productivity.md` — связь циклов сна и продуктивности
+2. `thoughts/ideas/2026-03-12-polyphasic-sleep-experiment.md` — идея эксперимента с полифазным сном
+3. `thoughts/learnings/2026-03-20-melatonin-and-attention.md` — мелатонин и качество внимания
+
+→ Бот создаёт: `thoughts/domains/sleep-and-performance.md`
+→ В дайджесте: «Создал новый домен Sleep & Performance (3 записи). Хочешь добавить его в classification?»
+
+---
+
+## Fallback Classification
+
+### Когда тема частично знакомая
+
+Если запись не попадает точно ни в один домен, но есть смысловое пересечение:
+
+1. **Найди ближайший домен** по ключевым словам и контексту
+2. **Классифицируй в него**, но добавь тег `#unclassified` для ручной проверки
+3. **В отчёте укажи:** «Отнёс к {домен}, но тема на стыке — проверь»
+
+Пример:
+> «Интересная модель монетизации через подписку на API» → ближе всего к FiveBBC Ops или Crypto & R&D? → выбери наиболее вероятный, добавь `#unclassified`
+
+### Когда тема абсолютно новая
+
+Если запись **никак не коррелирует** с существующими доменами:
+
+1. **Создай новый домен автоматически:**
+   - Определи краткое название темы (2–3 слова)
+   - Создай файл `thoughts/ideas/{date}-{topic-slug}.md` с `domain: New:{название}`
+   - Добавь тег `#new-domain`
+
+2. **Создай MOC-запись:**
+   - Добавь в `MOC/MOC-ideas.md` новую секцию с названием темы
+   - Если по теме накопится 3+ записей → предложи пользователю выделить в отдельный домен
+
+3. **В отчёте укажи:**
+   ```
+   🆕 Новая тема: «{название}»
+   Создана запись: thoughts/ideas/{date}-{slug}.md
+   Домен: New:{название}
+   Когда накопится 3+ записей — предложу выделить в отдельный домен.
+   ```
+
+4. **Правило накопления:**
+   - 1–2 записи → хранится как `domain: New:{название}` в thoughts/ideas/
+   - 3+ записей → бот предлагает: «По теме «{название}» уже 3 записи. Создать отдельный домен в classification.md?»
+   - При подтверждении → бот добавляет новый домен с ключевыми словами, категорией и маршрутом
+
+### Приоритет fallback-классификации
+
+```
+Запись не классифицируется чётко
+│
+├─ Есть пересечение с 1 доменом? ──────> Классифицируй туда + #unclassified
+│
+├─ Есть пересечение с 2+ доменами? ────> Выбери наиболее вероятный + #unclassified
+│                                        В отчёте перечисли варианты
+│
+└─ Нет пересечений? ───────────────────> Новый домен: New:{название} + #new-domain
+                                         Сохрани в thoughts/ideas/
+                                         Отслеживай накопление (3+ → предложи домен)
+```
 
 ---
 
@@ -46,49 +204,72 @@ Based on user's work context (see [ABOUT.md](ABOUT.md)):
 ```
 Entry text contains...
 │
-├─ Client brand or deadline? ────────────────────> TASK (p1-p2)
-│  ([Client A], [Client B], клиент, дедлайн, презентация)
+├─ Клиент/заказ/рефилл/дроп? ───────────────────> TASK (p1-p2)
+│  (клиент, оптовик, рефилл, заказ, дроп, Стас, Дима)
 │
-├─ Operational/urgent? ──────────────────────────> TASK (p2-p3)
-│  (нужно сделать, не забыть, позвонить, встреча)
+├─ Операционное/срочное? ────────────────────────> TASK (p2-p3)
+│  (нужно сделать, не забыть, проверить, добавить услугу)
 │
-├─ AI/tech learning? ────────────────────────────> LEARNING
-│  (узнал, модель, агент, интеграция)
+├─ SEO/контент с дедлайном? ─────────────────────> TASK (p2-p3)
+│  (статья, money page, аудит, опубликовать)
 │
-├─ Product/SaaS idea? ───────────────────────────> IDEA или PROJECT
-│  (продукт, MVP, гипотеза, SaaS)
+├─ SEO/контент без дедлайна? ────────────────────> PROJECT
+│  (стратегия контента, план статей, исследование КС)
 │
-├─ Strategic thinking? ──────────────────────────> PROJECT
-│  (стратегия, план, R&D, долгосрочно)
+├─ AI/tech обучение? ────────────────────────────> LEARNING
+│  (узнал, модель, агент, интеграция, Claude Code)
 │
-├─ Personal insight? ────────────────────────────> REFLECTION
-│  (понял, осознал, философия)
+├─ Крипто/R&D идея? ────────────────────────────> IDEA (p4)
+│  (арбитраж, бот, биржа, Web3)
 │
-└─ Content idea? ────────────────────────────────> IDEA
-   (пост, тезис, контент)
+├─ Книга — конкретное действие? ─────────────────> TASK (p3)
+│  (написать главу, инвентаризация, структура тома)
+│
+├─ Книга — мысль/инсайт? ───────────────────────> REFLECTION
+│  (идея для книги, тезис, наблюдение)
+│
+├─ Стратегическое мышление? ─────────────────────> PROJECT
+│  (стратегия, план, долгосрочно, масштабирование)
+│
+├─ Личный инсайт/осознание? ────────────────────> REFLECTION
+│  (понял, осознал, заметил, практика)
+│
+├─ Инсайт на любую тему? ───────────────────────> INSIGHT + #revisit
+│  (осенило, связь между, интересно что, а что если)
+│
+├─ Идея на любую тему? ─────────────────────────> IDEA + #revisit
+│  (идея, можно было бы, было бы круто, задумка)
+│
+├─ Контент-идея для соцсетей? ──────────────────> IDEA
+│  (пост, тезис, контент)
+│
+├─ Частично похоже на существующий домен? ───────> Ближайший домен + #unclassified
+│
+└─ Абсолютно новая тема? ───────────────────────> New:{название} + #new-domain
+   (ничего из вышеперечисленного не подходит)
 ```
 
 ---
 
-## Business Client Detection
+## Business Context Detection
 
-Entry mentions a known client (see business-context.md)?
+Entry mentions FiveBBC operations?
 
 ```
-├─ + deadline/urgency? → TASK (p1-p2) + client label
-├─ + статус ("отправили КП", "выиграли")? → TASK + flag for CRM note
-├─ + встреча/звонок? → TASK (p2) + [[client]] link
-└─ просто упоминание? → Add [[client]] link only
+├─ + клиент ждёт / срочно? → TASK (p1-p2) + label
+├─ + статус ("рефилл сделан", "услуга добавлена")? → TASK + done
+├─ + Стас/Дима? → TASK + assign context
+└─ просто упоминание? → Add context only
 ```
 
-### CRM Status Keywords (для информации в отчёте)
+### Operations Status Keywords
 
 | Keywords | Интерпретация |
 |----------|---------------|
-| "подписали", "выиграли", "получили" | Позитивный исход |
-| "отказали", "проиграли", "не пошли" | Негативный исход |
-| "отправили КП", "подали" | В процессе |
-| "ждём ответ", "на рассмотрении" | Ожидание |
+| "рефилл сделан", "услуга добавлена", "заказ выполнен" | Позитивный исход |
+| "дроп", "жалоба", "не работает" | Требует внимания |
+| "тестируем", "добавляем", "настраиваем" | В процессе |
+| "ждём провайдера", "на стороне API" | Ожидание |
 
 ---
 
@@ -97,8 +278,8 @@ Entry mentions a known client (see business-context.md)?
 Перед сохранением спроси:
 - Это масштабируется?
 - Это можно автоматизировать?
-- Это усиливает экспертизу или бренд?
-- Это приближает к продукту или SaaS?
+- Это усиливает SEO или трафик FiveBBC?
+- Это приближает к пассивному доходу ($100K/мес цель)?
 
 Если да на 2+ вопроса → повысить приоритет.
 
@@ -110,24 +291,28 @@ For `[photo]` entries:
 
 1. Analyze image content via vision
 2. Determine domain:
-   - Screenshot клиентского материала → Client Work
-   - Схема/диаграмма → AI & Tech или Product
-   - Текст/статья → Learning
+   - Скриншот панели / заказа → FiveBBC Operations
+   - Схема / диаграмма → AI & Tech или SEO
+   - Текст / статья → Learning
+   - Скриншот биржи / графика → Crypto & R&D
 3. Add description to daily file
 
 ---
 
 ## Output Locations
 
-| Category | Destination | Priority |
-|----------|-------------|----------|
-| task (client) | Todoist | p1-p2 |
-| task (ops) | Todoist | p2-p3 |
-| task (content) | Todoist | p3-p4 |
-| idea | thoughts/ideas/ | — |
-| reflection | thoughts/reflections/ | — |
-| project | thoughts/projects/ | — |
-| learning | thoughts/learnings/ | — |
+| Category | Destination | Priority | Tag |
+|----------|-------------|----------|-----|
+| task (клиент/операции) | Todoist | p1-p2 | — |
+| task (SEO/контент) | Todoist | p2-p3 | — |
+| task (книга) | Todoist | p3 | — |
+| task (инфраструктура) | Todoist | p2-p3 | — |
+| insight (свободный) | thoughts/insights/ | — | #revisit |
+| idea (свободная) | thoughts/ideas/ | — | #revisit |
+| idea (доменная) | thoughts/ideas/ | — | — |
+| reflection | thoughts/reflections/ | — | — |
+| project | thoughts/projects/ | — | — |
+| learning | thoughts/learnings/ | — | — |
 
 ---
 
@@ -139,9 +324,13 @@ thoughts/{category}/{YYYY-MM-DD}-short-title.md
 
 Examples:
 ```
-thoughts/ideas/2024-12-16-saas-pricing-model.md
-thoughts/projects/2024-12-16-ai-agents-pipeline.md
-thoughts/learnings/2024-12-16-claude-mcp-setup.md
+thoughts/ideas/2026-03-01-crypto-arbitrage-bot.md
+thoughts/ideas/2026-03-01-app-for-lucid-dreaming.md
+thoughts/insights/2026-03-01-attention-and-gravity-connection.md
+thoughts/insights/2026-03-01-why-people-resist-change.md
+thoughts/projects/2026-03-01-seo-audit-phase2.md
+thoughts/learnings/2026-03-01-claude-code-agents.md
+thoughts/reflections/2026-03-01-morning-practice-shift.md
 ```
 
 ---
@@ -154,8 +343,9 @@ Use preferred format:
 ---
 date: {YYYY-MM-DD}
 type: {category}
-domain: {Client Work|AI & Tech|Product|Agency Ops|Content}
+domain: {FiveBBC Ops|SEO & Content|AI & Tech|Crypto & R&D|Book|Infrastructure|Personal Growth|Free}
 tags: [tag1, tag2]
+revisit: true/false
 ---
 
 ## Context
@@ -165,22 +355,26 @@ tags: [tag1, tag2]
 [Ключевая идея]
 
 ## Implication
-[Что это значит для [Your Business]/продукта/стратегии]
+[Что это значит для FiveBBC / книги / стратегии дохода / жизни в целом]
 
 ## Next Action
-[Конкретный шаг — не абстрактный]
+[Конкретный шаг — или «пока нет, вернуться позже»]
 ```
+
+> Для свободных инсайтов и идей (domain: Free) допустимо: Next Action = «нет, сохранить для ревизии». Не нужно искусственно привязывать к текущим проектам.
 
 ---
 
 ## Anti-Patterns (ИЗБЕГАТЬ)
 
 При создании мыслей НЕ делать:
-- Абстрактные рассуждения без Next Action
-- Академическая теория без применения к [Your Business]/продукту
+- Абстрактные рассуждения без Next Action (кроме Free Insights — там допустимо)
+- Теория без применения к FiveBBC / книге / доходу (кроме domain: Free)
 - Повторы без синтеза (кластеризуй похожие!)
 - Хаотичные списки без приоритетов
 - Задачи типа "подумать о..." (конкретизируй!)
+- Крипто-задачи с высоким приоритетом (Фаза 2, не сейчас!)
+- Ответ «не могу классифицировать» — всегда применяй Unknown Topic Resolution
 
 ---
 
@@ -193,9 +387,19 @@ MOC/MOC-{category}s.md
 
 Group by domain when relevant:
 ```markdown
-## AI & Tech
-- [[2024-12-16-claude-mcp-setup]] - MCP integration
+## SEO & Content
+- [[2026-03-01-seo-audit-phase2]] - Фаза 2 аудита
 
-## Product
-- [[2024-12-16-saas-pricing-model]] - Pricing research
+## AI & Tech
+- [[2026-03-01-claude-code-agents]] - Агентная система
+
+## Crypto & R&D
+- [[2026-03-01-crypto-arbitrage-bot]] - Арбитражный бот (Фаза 2)
+
+## Book
+- [[2026-03-01-morning-practice-shift]] - Сдвиг в утренней практике
+
+## Free Insights & Ideas (#revisit)
+- [[2026-03-01-attention-and-gravity-connection]] - Связь внимания и гравитации
+- [[2026-03-01-app-for-lucid-dreaming]] - Приложение для осознанных сновидений
 ```

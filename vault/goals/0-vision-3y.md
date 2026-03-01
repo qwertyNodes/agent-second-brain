@@ -1,16 +1,15 @@
 ---
 type: vision
 horizon: 3-years
-period: 2025-2027
-updated: YYYY-MM-DD
+period: 2026-2028
+updated: 2026-03-01
 ---
 
-# Vision 2025-2027
+# Vision 2026-2028
 
 ## Life Mission
 
-<!-- Your life direction in one sentence -->
-<!-- Example: "Build meaningful technology while maintaining balance across health, relationships, and personal growth." -->
+Строить бизнес как инструмент свободы, писать книгу как акт исследования, развиваться технически ради мастерства — и жить осознанно.
 
 ---
 
@@ -19,72 +18,75 @@ updated: YYYY-MM-DD
 ### Career & Business
 
 **3-Year Vision:**
-<!-- Where do you want to be professionally in 3 years? -->
+FiveBBC — топ-10 SMM-панель в англоязычном сегменте с устойчивым органическим трафиком, SEO-доминированием в нише и узнаваемым брендом. Полностью автоматизированная платформа: от привлечения клиента до выполнения заказа. Диверсификация через SaaS-утилиты, партнёрские программы и white-label решения.
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] SEO-аудит система развёрнута, топ-3 по основным КС ниши
+- [ ] 15+ money pages + 50+ SEO-статей опубликовано
+- [ ] SaaS-утилиты запущены (engagement calculator, shadowban checker, content downloader)
+- [ ] Стабильный доход $10K+/мес чистыми
 
 ---
 
 ### Health & Energy
 
 **3-Year Vision:**
-<!-- What does your ideal health look like? -->
+Устойчивая энергия для работы и творчества. Тело как надёжный инструмент. Регулярная физическая активность, качественный сон, осознанное питание.
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] Устойчивый режим физической активности (3–4 раза/нед)
+- [ ] Стабильный сон 7–8 часов, фиксированное время
+- [ ] Отсутствие хронического выгорания
 
 ---
 
 ### Relationships & Family
 
 **3-Year Vision:**
-<!-- How do you want your relationships to evolve? -->
+Глубокие, честные отношения с близкими. Окружение людей, поддерживающих рост. Пространство для уединения без изоляции.
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] Регулярное качественное время с близкими
+- [ ] Сообщество единомышленников (внутренняя работа, технологии)
+- [ ] Книга как мост к новым связям с людьми на пути роста
 
 ---
 
 ### Personal Growth
 
 **3-Year Vision:**
-<!-- What skills, habits, or mindset changes do you want? -->
+Осознанность как фундамент жизни, а не «практика по расписанию». Книга «Проснись!» — отражение собственного пути. Жить то, о чём пишу.
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] Том 1 «Проснись! Природа реальности» издан (цифровой + печатный)
+- [ ] Тома 2–3 в работе или завершены
+- [ ] Ежедневная практика внимания и рефлексии: 2+ года без перерывов
+- [ ] Глубокое понимание собственных паттернов через работу с тенью
 
 ---
 
 ### Financial
 
 **3-Year Vision:**
-<!-- What does financial security look like for you? -->
+Финансовая свобода: бизнес генерирует доход без 12-часовых дней. Накопления для спокойного инвестирования времени в книгу. Полное налоговое соответствие Media Mechanics LLC.
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] Доход FiveBBC $10K+/мес чистыми стабильно
+- [ ] Подушка безопасности: 6 месяцев расходов
+- [ ] Минимум 2 дополнительных источника дохода
+- [ ] Ежегодная подача Form 5472, полное compliance
 
 ---
 
 ### Creativity & Joy
 
 **3-Year Vision:**
-<!-- What brings you joy? How will you nurture it? -->
+Книга — главный творческий проект. Позиция: путешественник → путешественнику, исследовательский тон. Возможно видео-серия или подкаст. Радость от процесса создания.
 
 **Key Milestones:**
-- [ ] Milestone 1
-- [ ] Milestone 2
-- [ ] Milestone 3
+- [ ] Книга находит аудиторию: отзывы, сообщество читателей
+- [ ] Освоить видео/аудио формат для дополнения книги
+- [ ] Регулярно выделять время на творчество без привязки к «результату»
 
 ---
 
@@ -99,10 +101,10 @@ updated: YYYY-MM-DD
 
 ## Links
 
-- [[1-yearly-2025]] - This year's goals
+- [[1-yearly-2026]] - This year's goals
 - [[2-monthly]] - Current month focus
 - [[3-weekly]] - This week's plan
 
 ---
 
-*Next Review: Q1 2025*
+*Next Review: Q2 2026*

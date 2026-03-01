@@ -76,33 +76,37 @@ If similar exists → mark as duplicate, don't create.
 
 ## Priority by Domain
 
-Based on user's work context (see [ABOUT.md](ABOUT.md)):
+Based on John's work context (see [about.md](about.md)):
 
 | Domain | Default Priority | Override |
 |--------|-----------------|----------|
-| Client Work | p1-p2 | — |
-| Agency Ops (urgent) | p2 | — |
-| Agency Ops (regular) | p3 | — |
-| Content (with deadline) | p2-p3 | — |
-| Product/R&D | p4 | масштабируемость → p3 |
-| AI & Tech | p4 | автоматизация → p3 |
+| FiveBBC клиенты (оптовики) | p1-p2 | — |
+| FiveBBC операции (срочные) | p2 | — |
+| FiveBBC операции (обычные) | p3 | — |
+| SEO / Контент (с дедлайном) | p2-p3 | — |
+| Infrastructure (VPS, Docker, SSH) | p2-p3 | блокирует работу → p1 |
+| Книга «Проснись!» | p3 | дедлайн → p2 |
+| Personal Growth (практика, рефлексия) | p3 | — |
+| Крипто-бот / R&D | p4 | автоматизация → p3 |
+| AI & Tech (инструменты) | p4 | автоматизация → p3 |
+| New:{домен} / #unclassified | p4 | пользователь повысил → любой |
 
 ### Priority Keywords
 
 | Keywords in text | Priority |
 |-----------------|----------|
-| срочно, критично, дедлайн клиента | p1 |
-| важно, приоритет, до конца недели | p2 |
-| нужно, надо, не забыть | p3 |
-| (strategic, R&D, long-term) | p4 |
+| срочно, критично, клиент ждёт, рефилл | p1 |
+| важно, приоритет, до конца недели, дроп | p2 |
+| нужно, надо, не забыть, добавить услугу | p3 |
+| стратегия, R&D, бот, крипто, эксперимент | p4 |
 
 ### Apply Decision Filters for Priority Boost
 
 If entry matches 2+ filters → boost priority by 1 level:
 - Это масштабируется?
 - Это можно автоматизировать?
-- Это усиливает экспертизу [Your Business]?
-- Это приближает к продукту/SaaS?
+- Это усиливает SEO или трафик FiveBBC?
+- Это приближает к пассивному доходу ($100K/мес цель)?
 
 ---
 
@@ -110,12 +114,12 @@ If entry matches 2+ filters → boost priority by 1 level:
 
 | Context | dueString |
 |---------|-----------|
-| **Client deadline** | exact date |
-| **Urgent ops** | today / tomorrow |
-| **This week** | friday |
-| **Next week** | next monday |
-| **Strategic/R&D** | in 7 days |
-| **Not specified** | in 3 days |
+| Клиент ждёт / рефилл | today / tomorrow |
+| Срочные операции | today / tomorrow |
+| На этой неделе | friday |
+| На следующей неделе | next monday |
+| Стратегия / R&D / книга | in 7 days |
+| Не указано | in 3 days |
 
 ### Russian → dueString
 
@@ -146,17 +150,19 @@ mcp-cli call todoist add-tasks '{"tasks": [{"content": "Task title", "dueString"
 
 ### Task Title Style
 
-User prefers: прямота, ясность, конкретика
+John предпочитает: прямота, ясность, конкретика
 
 ✅ Good:
-- "Отправить презентацию [Client A]"
-- "Созвон с командой по AI-агентам"
-- "Написать пост про Claude MCP"
+- "Прогнать SEO-аудит на странице /buy-instagram-followers"
+- "Добавить новую услугу TikTok views в каталог"
+- "Написать money page для YouTube subscribers"
+- "Проверить рефилл для оптового клиента"
+- "1 час: инвентаризация исходников книги"
 
 ❌ Bad:
-- "Подумать о презентации"
-- "Что-то с клиентом"
-- "Разобраться с AI"
+- "Подумать о SEO"
+- "Что-то с услугами"
+- "Разобраться с книгой"
 
 ### Workload Balancing
 
@@ -169,14 +175,25 @@ If target day has 3+ tasks:
 
 ## Project Detection
 
-Based on work domains:
+Based on John's work domains (synced with classification.md):
 
 | Keywords | Project |
 |----------|---------|
-| [Client A], [Client B], клиент, бренд | Client Work |
-| [Your Business], агентство, команда, найм | Agency Ops |
-| продукт, SaaS, MVP | Product |
-| пост, @yourbrand, контент | Content |
+| FiveBBC, панель, услуга, каталог, клиент, рефилл, дроп, заказ | FiveBBC Ops |
+| SEO, аудит, DataForSEO, ключевое слово, SERP, статья, money page | SEO & Content |
+| книга, Проснись, том, глава, исходник, инвентаризация | Book |
+| бот, крипто, арбитраж, биржа, DEX, Web3 | Crypto (R&D) |
+| агент, Claude Code, MCP, пайплайн, скилл | AI & Tech |
+| VPS, Docker, SSH, сервер, деплой, nginx, DNS | Infrastructure |
+| Стас, Дима, команда, процесс | Team & Ops |
+| практика, внимание, медитация, сон, энергия, тень | Personal Growth |
+
+### Fallback (synced with classification.md Fallback Classification)
+
+Если задача не попадает ни в один проект:
+1. Есть смысловое пересечение → ближайший проект + label `unclassified`
+2. Абсолютно новая тема → Inbox (no projectId) + label `new-domain`
+3. В отчёте указать: «Тема не классифицирована, задача в Inbox — проверь»
 
 If unclear → use Inbox (no projectId).
 
@@ -184,35 +201,36 @@ If unclear → use Inbox (no projectId).
 
 ## Client Labels
 
-При создании задач связанных с клиентом, добавляй label.
+При создании задач связанных с оптовыми клиентами, добавляй label.
 
 ### Format
 `client:{kebab-case-name}`
 
 ### Примеры
-- client:acme-corp
-- client:techco
-- client:phonebrand
+- client:wholesale-buyer
+- client:reseller-panel
 
 ### Использование
 ```bash
-mcp-cli call todoist add-tasks '{"tasks": [{"content": "Follow-up [Client A] по проекту", "labels": ["client:acme-corp", "deadline"]}]}'
+mcp-cli call todoist add-tasks '{"tasks": [{"content": "Рефилл подписчиков для оптовика", "labels": ["client:wholesale-buyer", "urgent"]}]}'
 ```
 
 ### Фильтр в Todoist
-`@client:acme-corp` — все задачи по [Client A]
+`@client:wholesale-buyer` — все задачи по клиенту
 
 ---
 
 ## Anti-Patterns (НЕ СОЗДАВАТЬ)
 
-Based on user preferences:
+Based on John's preferences:
 
 - ❌ "Подумать о..." → конкретизируй действие
 - ❌ "Разобраться с..." → что именно сделать?
 - ❌ Абстрактные задачи без Next Action
 - ❌ Дубликаты существующих задач
 - ❌ Задачи без дат
+- ❌ Инсайты и свободные идеи → они идут в vault (thoughts/), НЕ в Todoist (см. classification.md)
+- ❌ Записи с тегами `#revisit`, `#new-domain` → это мысли, не задачи
 
 ---
 
@@ -242,7 +260,7 @@ When creating process commitments → use dueString with recurring pattern.
 
 | Process Description | dueString |
 |---------------------|-----------|
-| каждое утро в 6 | every day at 6am |
+| каждое утро | every day |
 | каждый день | every day |
 | каждый рабочий день | every weekday |
 | 3 раза в неделю | every monday, wednesday, friday |
@@ -254,8 +272,9 @@ When creating process commitments → use dueString with recurring pattern.
 
 ```bash
 mcp-cli call todoist add-tasks '{"tasks": [
-  {"content": "2h deep work: программа [Client B]", "dueString": "every day at 6am", "priority": 2, "labels": ["process-goal"]},
-  {"content": "1 outreach для поиска 2го спикера", "dueString": "every weekday", "priority": 3, "labels": ["process-goal"]}
+  {"content": "15 мин практика внимания", "dueString": "every day", "priority": 3, "labels": ["process-goal"]},
+  {"content": "Проверка заказов FiveBBC (≤30 мин)", "dueString": "every day", "priority": 2, "labels": ["process-goal"]},
+  {"content": "1 час: работа над книгой", "dueString": "every weekday", "priority": 3, "labels": ["process-goal"]}
 ]}'
 ```
 

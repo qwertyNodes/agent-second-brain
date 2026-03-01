@@ -1,59 +1,60 @@
 ---
 type: monthly
-period: YYYY-MM
-updated: YYYY-MM-DD
+period: 2026-03
+updated: 2026-03-01
 ---
 
 # Monthly Focus
 
 ## Top 3 Priorities
 
-### Priority 1: [Your Top Priority]
-<!-- What MUST happen this month? -->
+### Priority 1: Реализовать Фазу 1–2 SEO-аудит системы
 
-**Why it matters:** [connection to yearly goal]
+**Why it matters:** Фундамент для всей SEO-стратегии FiveBBC → [[1-yearly-2026#Goal 1: Запустить SEO-аудит систему]]
 
 **Key Actions:**
-- [ ] Action 1
-- [ ] Action 2
-- [ ] Action 3
+- [ ] Финализировать architecture.md / CLAUDE.md для проекта
+- [ ] Реализовать скрипты Фазы 1: парсинг sitemap → urls.json, парсинг GSC → gsc_parsed.json, скачивание HTML → page_content.json
+- [ ] Реализовать Фазу 2A: агент выбора КС (page_summary.json → focus_keyword.json)
+- [ ] Настроить интеграцию с DataForSEO API (Фаза 2B)
+- [ ] Тестовый прогон на 3 страницах для калибровки токенов и затрат
 
-**Definition of Done:** [clear outcome]
+**Definition of Done:** 3 страницы FiveBBC полностью прошли Фазы 1–2, файлы focus_keyword.json и serp_results.json сгенерированы.
 
 ---
 
-### Priority 2: [Second Priority]
+### Priority 2: Настроить инфраструктуру и Second Brain Agent
 
-**Why it matters:** [connection to yearly goal]
+**Why it matters:** Стабильная среда разработки и рабочий бот = основа продуктивности → [[1-yearly-2026#Goal 3: Платформа и автоматизация]]
 
 **Key Actions:**
-- [ ] Action 1
-- [ ] Action 2
-- [ ] Action 3
+- [ ] Стабилизировать SSH-доступ Claude Code → Contabo VPS
+- [ ] Проверить Docker на VPS (disk space, логи, стабильность)
+- [ ] Настроить vault и goal-файлы для Second Brain Agent
+- [ ] Протестировать бот на ежедневных задачах
 
-**Definition of Done:** [clear outcome]
+**Definition of Done:** SSH работает стабильно, бот читает vault и создаёт daily notes.
 
 ---
 
-### Priority 3: [Third Priority]
+### Priority 3: Продвинуть книгу — инвентаризация и группировка
 
-**Why it matters:** [connection to yearly goal]
+**Why it matters:** Без структуры невозможно начать писать черновик → [[1-yearly-2026#Goal 1: Книга «Проснись!»]]
 
 **Key Actions:**
-- [ ] Action 1
-- [ ] Action 2
-- [ ] Action 3
+- [ ] Завершить структурную инвентаризацию всех 16 исходников (если не завершена)
+- [ ] Кластеризовать темы по смыслу
+- [ ] Наметить разбивку на тома (3–4, по нарастанию глубины)
 
-**Definition of Done:** [clear outcome]
+**Definition of Done:** Документ с разбивкой материала по томам и предварительная структура Тома 1.
 
 ---
 
 ## NOT Doing This Month
 
-<!-- What are you consciously saying NO to? -->
--
--
--
+- Не начинать писать черновик книги (сначала структура)
+- Не разрабатывать утилиты (engagement calculator и т.д.) — это Q2
+- Не тратить время на редизайн каталога FiveBBC — пока фокус на SEO-бэкенде
 
 ---
 
@@ -61,10 +62,10 @@ updated: YYYY-MM-DD
 
 | Week | Progress | Blockers | Adjustments |
 |------|----------|----------|-------------|
-| W1 | | | |
-| W2 | | | |
-| W3 | | | |
-| W4 | | | |
+| W1 (1–7 мар) | | | |
+| W2 (8–14 мар) | | | |
+| W3 (15–21 мар) | | | |
+| W4 (22–31 мар) | | | |
 
 ---
 
@@ -87,9 +88,9 @@ updated: YYYY-MM-DD
 ## Links
 
 - [[0-vision-3y]] - 3-year vision
-- [[1-yearly-2025]] - Annual goals
+- [[1-yearly-2026]] - Annual goals
 - [[3-weekly]] - This week's plan
 
 ---
 
-*Next Review: End of month*
+*Next Review: End of March*

@@ -1,7 +1,7 @@
 ---
 type: weekly
-week: YYYY-WWW
-updated: YYYY-MM-DD
+week: 2026-W09
+updated: 2026-03-01
 ---
 
 # Weekly Focus
@@ -9,17 +9,15 @@ updated: YYYY-MM-DD
 ## ONE Big Thing
 
 > **If I accomplish nothing else, I will:**
-> [Single most important outcome for this week]
-
-<!-- This is read by the bot during daily processing -->
+> Настроить Second Brain Agent (vault + goals) и запустить скрипты Фазы 1 SEO-аудита.
 
 ---
 
 ## Week at a Glance
 
-**Week:** [X] of 52
-**Energy Level:** [High/Medium/Low]
-**Available Hours:** [X] hours focused work
+**Week:** 9 of 52
+**Energy Level:** Medium
+**Available Hours:** ~30 hours focused work
 
 ---
 
@@ -27,19 +25,21 @@ updated: YYYY-MM-DD
 
 ### Must Do (Non-negotiable)
 
-- [ ] Task 1 — Связь: [[1-yearly-2025#Goal]]
-- [ ] Task 2
-- [ ] Task 3
+- [ ] Финализировать vault-структуру Second Brain Agent — Связь: [[1-yearly-2026#Goal 3: Платформа и автоматизация]]
+- [ ] Заполнить goal-файлы (vision, yearly, monthly, weekly)
+- [ ] Проверить SSH Claude Code → VPS, устранить проблемы
+- [ ] Написать скрипт парсинга sitemap.xml → urls.json — Связь: [[1-yearly-2026#Goal 1: Запустить SEO-аудит систему]]
 
 ### Should Do (Important)
 
-- [ ] Task 1
-- [ ] Task 2
+- [ ] Скрипт парсинга GSC-экспорта → gsc_parsed.json
+- [ ] Скрипт скачивания HTML + извлечения структуры → page_content.json
+- [ ] 1–2 часа на инвентаризацию исходников книги
 
 ### Could Do (If time permits)
 
-- [ ] Task 1
-- [ ] Task 2
+- [ ] Начать кластеризацию тем книги по томам
+- [ ] Проверить Docker disk space на VPS
 
 ---
 
@@ -47,33 +47,33 @@ updated: YYYY-MM-DD
 
 ### Monday
 
-- [ ] Task 1
-- [ ] Task 2
+- [ ] Настройка vault Second Brain Agent
+- [ ] Заполнение goal-файлов
 
 ### Tuesday
 
-- [ ] Task 1
-- [ ] Task 2
+- [ ] SSH Claude Code → VPS: тестирование и фиксы
+- [ ] Начать скрипт sitemap-парсера
 
 ### Wednesday
 
-- [ ] Task 1
-- [ ] Task 2
+- [ ] Завершить sitemap-парсер
+- [ ] Скрипт GSC-парсера
 
 ### Thursday
 
-- [ ] Task 1
-- [ ] Task 2
+- [ ] Скрипт скачивания HTML / page_content.json
+- [ ] Тестирование цепочки Фазы 1
 
 ### Friday
 
-- [ ] Task 1
-- [ ] Task 2
+- [ ] 1–2 часа: инвентаризация исходников книги
+- [ ] Недельная ретроспектива
 
 ### Weekend
 
-- [ ] Rest / Family time
-- [ ] Optional task
+- [ ] Отдых / практика внимания
+- [ ] По желанию: чтение / рефлексия по книге
 
 ---
 
@@ -81,8 +81,7 @@ updated: YYYY-MM-DD
 
 | Day | Time | Event | Prep |
 |-----|------|-------|------|
-| Mon | | | |
-| Tue | | | |
+| — | — | Нет запланированных | — |
 
 ---
 
@@ -90,9 +89,9 @@ updated: YYYY-MM-DD
 
 | Habit | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |-------|-----|-----|-----|-----|-----|-----|-----|
-| [Habit 1] | | | | | | | |
-| [Habit 2] | | | | | | | |
-| [Habit 3] | | | | | | | |
+| Практика внимания (15 мин) | | | | | | | |
+| Проверка заказов FiveBBC (≤30 мин) | | | | | | | |
+| Физическая активность | | | | | | | |
 
 ---
 
@@ -119,9 +118,9 @@ updated: YYYY-MM-DD
 ## Links
 
 - [[2-monthly]] - Monthly priorities
-- [[1-yearly-2025]] - Yearly goals
-- Previous: [[3-weekly-YYYY-WXX]]
+- [[1-yearly-2026]] - Yearly goals
+- Previous: —
 
 ---
 
-*Week Started: YYYY-MM-DD*
+*Week Started: 2026-03-01*
