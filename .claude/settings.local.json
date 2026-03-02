@@ -1,13 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(gh api:*)",
-      "Bash(do echo:*)",
-      "Bash(sort -k2)",
-      "Bash(find \"D:/Google_Drive_Drevow/Work/Second_Brain/.claude\" -type f -exec ls -lh {} ;)",
-      "Bash(xargs -0 ls -lh)",
-      "Bash(find . -type f -exec ls -lh {} ;)",
-      "Bash(gh repo view smixs/agent-second-brain)"
+      "Bash(find /home/agent-second-brain/src -type f -name \"*.py\" 2>/dev/null | head -20)",
+      "Bash(find /home/agent-second-brain -type f \( -name \".env*\" -o -name \"*.conf\" -o -name \"cron*\" \) 2>/dev/null | grep -v \".venv\")",
+      "Bash(grep -r \"schedule\|cron\|interval\|timer\|frequency\" /home/agent-second-brain --include=\"*.py\" --include=\"*.sh\" --include=\"*.md\" 2>/dev/null | grep -v \".venv\" | head -30)",
+      "Bash(grep -l \"commit\|push\|schedule\|cron\" /home/agent-second-brain/.claude/skills/*/SKILL.md 2>/dev/null)",
+      "Bash(find /home/agent-second-brain/.claude -type f \( -name \"*.json\" -o -name \"*.yaml\" -o -name \"*.yml\" -o -name \"*.md\" \) 2>/dev/null | head -30)",
+      "Bash(git config --global --add safe.directory /home/agent-second-brain)"
     ]
   }
 }
