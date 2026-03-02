@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api:*)",
+      "Bash(do echo:*)",
+      "Bash(sort -k2)",
+      "Bash(find \"D:/Google_Drive_Drevow/Work/Second_Brain/.claude\" -type f -exec ls -lh {} ;)",
+      "Bash(xargs -0 ls -lh)",
+      "Bash(find . -type f -exec ls -lh {} ;)",
+      "Bash(gh repo view smixs/agent-second-brain)"
+    ]
+  }
+}

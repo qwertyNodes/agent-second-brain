@@ -25,6 +25,9 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Archive (local only)
+.archive/
+
 # Vault personal data (never commit these)
 vault/daily/
 vault/contacts/
