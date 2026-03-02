@@ -259,6 +259,12 @@ CRITICAL MCP RULE:
 - НИКОГДА не пиши "MCP недоступен" или "добавь вручную"
 - Если tool вернул ошибку — покажи ТОЧНУЮ ошибку в отчёте
 
+REMINDER RULE:
+- Если пользователь просит напомнить что-либо в определённое время — добавь в ответ маркер:
+  [[REMINDER: HH:MM | текст напоминания]]
+- Пример: "Установлю напоминание [[REMINDER: 21:00 | Позвонить Ивану]]"
+- Маркер будет обработан автоматически и не отобразится пользователю
+
 USER REQUEST:
 {user_prompt}
 
@@ -302,22 +308,37 @@ EXECUTION:
                 return {
                     "error": result.stderr or "Claude execution failed",
                     "processed_entries": 0,
+                    "reminders": [],
                 }
 
+            output = result.stdout.strip()
+
+            # Extract reminder markers and clean them from display output
+            reminders: list[tuple[str, str]] = []
+            try:
+                from d_brain.services.reminder import extract_reminders, strip_reminder_markers
+                reminders = extract_reminders(output)
+                if reminders:
+                    output = strip_reminder_markers(output)
+                    logger.info("Extracted %d reminder(s) from Claude response", len(reminders))
+            except Exception:
+                logger.exception("Failed to extract reminders from output")
+
             return {
-                "report": result.stdout.strip(),
+                "report": output,
                 "processed_entries": 1,
+                "reminders": reminders,
             }
 
         except subprocess.TimeoutExpired:
             logger.error("Claude execution timed out")
-            return {"error": "Execution timed out", "processed_entries": 0}
+            return {"error": "Execution timed out", "processed_entries": 0, "reminders": []}
         except FileNotFoundError:
             logger.error("Claude CLI not found")
-            return {"error": "Claude CLI not installed", "processed_entries": 0}
+            return {"error": "Claude CLI not installed", "processed_entries": 0, "reminders": []}
         except Exception as e:
             logger.exception("Unexpected error during execution")
-            return {"error": str(e), "processed_entries": 0}
+            return {"error": str(e), "processed_entries": 0, "reminders": []}
 
     def generate_weekly(self) -> dict[str, Any]:
         """Generate weekly digest with Claude.

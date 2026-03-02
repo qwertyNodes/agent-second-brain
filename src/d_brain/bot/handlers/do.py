@@ -8,6 +8,8 @@ from aiogram.filters import Command, CommandObject
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
+from pathlib import Path
+
 from d_brain.bot.formatters import format_process_report
 from d_brain.bot.states import DoCommandState
 from d_brain.config import get_settings
@@ -16,6 +18,20 @@ from d_brain.services.transcription import DeepgramTranscriber
 
 router = Router(name="do")
 logger = logging.getLogger(__name__)
+
+
+def _save_reminders(reminders: list[tuple[str, str]], user_id: int, vault_path: Path) -> None:
+    """Save extracted reminders from Claude response. Gracefully ignores errors."""
+    try:
+        from d_brain.services.reminder import ReminderStorage, parse_reminder_datetime
+
+        storage = ReminderStorage(vault_path)
+        for dt_str, text in reminders:
+            dt = parse_reminder_datetime(dt_str)
+            if dt:
+                storage.add_reminder(user_id, dt, text)
+    except Exception:
+        logger.exception("Failed to save reminders")
 
 
 @router.message(Command("do"))
@@ -113,6 +129,10 @@ async def process_request(message: Message, prompt: str, user_id: int = 0) -> No
         return await task
 
     report = await run_with_progress()
+
+    # Save any reminders extracted from Claude's response
+    if report.get("reminders") and user_id:
+        _save_reminders(report["reminders"], user_id, settings.vault_path)
 
     formatted = format_process_report(report)
     try:

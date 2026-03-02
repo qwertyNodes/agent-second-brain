@@ -7,3 +7,9 @@ class DoCommandState(StatesGroup):
     """States for /do command flow."""
 
     waiting_for_input = State()  # Waiting for voice or text after /do
+
+
+class ChatState(StatesGroup):
+    """States for free conversational chat mode with Claude."""
+
+    active = State()  # Active chat session

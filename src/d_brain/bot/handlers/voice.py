@@ -46,7 +46,20 @@ async def handle_voice(message: Message, bot: Bot) -> None:
             return
 
         timestamp = datetime.fromtimestamp(message.date.timestamp())
-        storage.append_to_daily(transcript, timestamp, "[voice]")
+
+        # Extract quoted context if user replied to a message
+        quote: str | None = None
+        if message.reply_to_message:
+            quote = message.reply_to_message.text or message.reply_to_message.caption
+
+        if quote:
+            content = f"> {quote}\n\n{transcript}"
+            msg_type = "[voice, цитата]"
+        else:
+            content = transcript
+            msg_type = "[voice]"
+
+        storage.append_to_daily(content, timestamp, msg_type)
 
         # Log to session
         session = SessionStore(settings.vault_path)
@@ -54,11 +67,13 @@ async def handle_voice(message: Message, bot: Bot) -> None:
             message.from_user.id,
             "voice",
             text=transcript,
+            quoted=quote,
             duration=message.voice.duration,
             msg_id=message.message_id,
         )
 
-        await message.answer(f"🎤 {transcript}\n\n✓ Сохранено")
+        suffix = " (с цитатой)" if quote else ""
+        await message.answer(f"🎤 {transcript}\n\n✓ Сохранено{suffix}")
         logger.info("Voice message saved: %d chars", len(transcript))
 
     except Exception as e:

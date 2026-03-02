@@ -4,7 +4,7 @@ from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
-from d_brain.bot.states import DoCommandState
+from d_brain.bot.states import ChatState, DoCommandState
 
 router = Router(name="buttons")
 
@@ -40,6 +40,17 @@ async def btn_do(message: Message, state: FSMContext) -> None:
     await message.answer(
         "🎯 <b>Что сделать?</b>\n\n"
         "Отправь голосовое или текстовое сообщение с запросом."
+    )
+
+
+@router.message(F.text == "💬 Диалог")
+async def btn_chat(message: Message, state: FSMContext) -> None:
+    """Handle Chat button - activate free conversational mode."""
+    await state.set_state(ChatState.active)
+    await message.answer(
+        "💬 <b>Режим диалога включён.</b>\n\n"
+        "Задавай вопросы голосом или текстом.\n"
+        "Нажми «✅ Завершить сессию» под ответом, чтобы вернуться в режим сохранения."
     )
 
 
