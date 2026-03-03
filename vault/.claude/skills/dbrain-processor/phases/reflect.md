@@ -87,6 +87,29 @@ Follow the HTML template exactly:
 Orphans: {N} | Broken: {M} | Avg links: {X} | Desc: {Y}%
 ```
 
+### Thought dependency graph (add to report if thoughts were saved):
+
+Read `.graph/vault-graph.json`. For each thought in execute.json `thoughts_saved`:
+
+1. Get thought's file stem (filename without .md extension, e.g. `2026-03-03-content-cluster-strategy`)
+2. Look up `links_from[stem]` — outgoing wiki-links from this thought
+3. Look up `links_to[stem]` — notes that link TO this thought
+4. Get subcategory stats from `subcategory_stats["thoughts/{category}"]`
+   - e.g., `subcategory_stats["thoughts/ideas"]` for an idea
+
+Add to report after each saved thought:
+```
+  <i>🕸️ ideas: {count} заметок · ср. {avg_links} связей</i>
+  <i>↔ {outgoing links, up to 3}</i>
+```
+
+Rules:
+- If vault-graph.json missing or unreadable — skip graph entirely
+- If thought has no outgoing AND no incoming links — show only subcategory stats line
+- If thought has incoming links — add line: `<i>← {incoming note names}</i>`
+- Show outgoing as note names, max 3, comma-separated
+- Category emoji: 💡 ideas, 🪞 reflections, 🎯 projects, 📚 learnings
+
 ## CRITICAL
 
 - Output is RAW HTML only

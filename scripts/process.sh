@@ -158,12 +158,16 @@ sys.stdout.write('{\"error\": \"failed to parse execute output\"}')
 
     echo "Execute saved: $(wc -c < "$EXECUTE_FILE") bytes"
 
+    # Rebuild graph BEFORE reflect (so report sees fresh thoughts)
+    echo "=== Rebuilding vault graph (pre-reflect) ==="
+    uv run .claude/skills/graph-builder/scripts/analyze.py || echo "Graph rebuild failed (non-critical)"
+
     # ── Phase 3: REFLECT ──
     echo "=== Phase 3: REFLECT ==="
     REPORT=$(claude --print --dangerously-skip-permissions \
         -p "Today is $TODAY. Read .claude/skills/dbrain-processor/phases/reflect.md and execute Phase 3.
 Read .session/capture.json and .session/execute.json for input data.
-Read MEMORY.md, .session/handoff.md, .graph/health-history.json.
+Read MEMORY.md, .session/handoff.md, .graph/health-history.json, .graph/vault-graph.json.
 Generate HTML report, update MEMORY, record observations.
 Return ONLY RAW HTML (for Telegram)." \
         2>&1) || true
@@ -178,13 +182,9 @@ echo "===================="
 # Remove HTML comments (break Telegram HTML parser)
 REPORT_CLEAN=$(echo "$REPORT" | sed '/<!--/,/-->/d')
 
-# Rebuild vault graph (keeps structure up to date)
-echo "=== Rebuilding vault graph ==="
-cd "$VAULT_DIR"
-uv run .claude/skills/graph-builder/scripts/analyze.py || echo "Graph rebuild failed (non-critical)"
-
 # Memory decay (update relevance scores and tiers)
 echo "=== Memory decay ==="
+cd "$VAULT_DIR"
 uv run .claude/skills/agent-memory/scripts/memory-engine.py decay . || echo "Memory decay failed (non-critical)"
 cd "$PROJECT_DIR"
 

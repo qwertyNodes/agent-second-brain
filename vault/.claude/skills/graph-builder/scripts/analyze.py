@@ -44,9 +44,15 @@ def analyze_vault(vault_path: Path) -> dict:
         title = get_note_title(md_file)
         domain = str(rel_path.parts[0]) if len(rel_path.parts) > 1 else "root"
 
+        # Subcategory for thoughts/ (ideas, learnings, projects, reflections)
+        subcategory = None
+        if domain == "thoughts" and len(rel_path.parts) > 2:
+            subcategory = str(rel_path.parts[1])
+
         notes[title] = {
             "path": str(rel_path),
             "domain": domain,
+            "subcategory": subcategory,
             "size": md_file.stat().st_size,
         }
 
@@ -89,6 +95,19 @@ def analyze_vault(vault_path: Path) -> dict:
         if count > 0:
             domain_stats[domain]["avg_links"] = domain_stats[domain]["links"] / count
 
+    # Subcategory statistics (breakdown for thoughts/*)
+    subcategory_stats: dict[str, dict] = defaultdict(lambda: {"count": 0, "links": 0})
+    for title, info in notes.items():
+        if info.get("subcategory"):
+            key = f"{info['domain']}/{info['subcategory']}"
+            subcategory_stats[key]["count"] += 1
+            subcategory_stats[key]["links"] += info["total_links"]
+
+    for key in subcategory_stats:
+        count = subcategory_stats[key]["count"]
+        if count > 0:
+            subcategory_stats[key]["avg_links"] = round(subcategory_stats[key]["links"] / count, 1)
+
     # Most connected notes
     most_connected = sorted(
         notes.items(),
@@ -102,6 +121,7 @@ def analyze_vault(vault_path: Path) -> dict:
         "orphans": orphans,
         "orphan_count": len(orphans),
         "domain_stats": dict(domain_stats),
+        "subcategory_stats": dict(subcategory_stats),
         "most_connected": [(t, n["total_links"]) for t, n in most_connected],
         "notes": notes,
         "links_from": {k: list(v) for k, v in links_from.items()},

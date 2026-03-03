@@ -40,6 +40,8 @@ NO unsupported tags: div, span, br, p, table, tr, td
 
 <b>📓 Сохранено мыслей:</b> {N}
 • {emoji} {title} → {category}/
+  <i>🕸️ {subcategory}: {count} заметок · ср. {avg_links} связей</i>
+  <i>↔ {outgoing_links}</i>
 
 <b>✅ Создано задач:</b> {M}
 • {task_name} <i>({priority}, {due})</i>
@@ -78,6 +80,18 @@ If not found: "Не задан — обновите goals/3-weekly.md"
 ### Thoughts (📓)
 Count saved, list with category emoji:
 💡 idea, 🪞 reflection, 🎯 project, 📚 learning
+
+After each thought, show graph context (from vault-graph.json):
+- Subcategory name (ideas/reflections/projects/learnings), count in subcategory, avg links
+- Outgoing links: up to 3, comma-separated
+- Incoming links: notes that link to this thought; if none — skip the line
+- If vault-graph.json unavailable — skip graph lines entirely
+- If no outgoing and no incoming — show only subcategory stats line
+
+Example:
+• 💡 Content cluster strategy → ideas/
+  <i>🕸️ ideas: 8 заметок · ср. 2.4 связей</i>
+  <i>↔ seo-audit-system, article-writer-pipeline</i>
 
 ### Tasks (✅)
 Count created, list with priority and due date.
